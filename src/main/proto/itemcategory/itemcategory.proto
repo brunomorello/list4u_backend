@@ -1,0 +1,21 @@
+syntax = "proto3";
+package itemcategory;
+
+option java_package = "br.com.l4u.itemcategory";
+option java_multiple_files = true;
+
+message ItemCategory {
+  string id = 1;
+  string name = 2;
+}
+
+message ItemCategoryListRequest {}
+
+message ItemCategoryListResponse {
+  repeated ItemCategory items = 1;
+}
+
+service ItemCategoryService {
+  // Unary
+  rpc ListAllItemCategories(ItemCategoryListRequest) returns (ItemCategoryListResponse) {};
+}
