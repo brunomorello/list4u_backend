@@ -14,15 +14,26 @@ configurations {
 }
 
 repositories {
+    maven { // The google mirror is less flaky than mavenCentral()
+        url "https://maven-central.storage-download.googleapis.com/maven2/" }
     mavenCentral()
+    mavenLocal()
 }
+
+def grpcVersion = '1.40.1' // CURRENT_GRPC_VERSION
+def protobufVersion = '3.19.1'
+def protocVersion = protobufVersion
 
 dependencies {
     // gRPC
-    implementation 'io.grpc:grpc-netty-shaded:1.40.1'
-    implementation 'io.grpc:grpc-protobuf:1.40.1'
-    implementation 'io.grpc:grpc-services:1.40.1'
-    implementation 'io.grpc:grpc-stub:1.40.1'
+    runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+
+    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+    implementation "io.grpc:grpc-stub:${grpcVersion}"
+    compileOnly "org.apache.tomcat:annotations-api:6.0.53"
+
+    implementation "com.google.protobuf:protobuf-java-util:${protobufVersion}"
+    testImplementation "io.grpc:grpc-testing:${grpcVersion}"
 
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.22'
@@ -34,6 +45,9 @@ dependencies {
     // junit5
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    // mockito
+    testImplementation "org.mockito:mockito-core:3.4.0"
 }
 
 test {
@@ -41,17 +55,21 @@ test {
 }
 
 protobuf {
-    protoc {
-        artifact = 'com.google.protobuf:protoc:3.17.3'
-    }
+    protoc { artifact = "com.google.protobuf:protoc:${protocVersion}" }
     plugins {
-        grpc {
-            artifact = 'io.grpc:protoc-gen-grpc-java:1.40.1'
-        }
+        grpc { artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" }
     }
     generateProtoTasks {
-        all()*.plugins {
-            grpc {}
+        all()*.plugins { grpc {} }
+    }
+}
+
+// Inform IDEs like IntelliJ IDEA, Eclipse or NetBeans about the generated code.
+sourceSets {
+    main {
+        java {
+            srcDirs 'build/generated/source/proto/main/grpc'
+            srcDirs 'build/generated/source/proto/main/java'
         }
     }
 }
