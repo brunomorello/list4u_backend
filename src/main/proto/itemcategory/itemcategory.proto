@@ -6,12 +6,34 @@ option java_multiple_files = true;
 
 message ItemCategoryListRequest {}
 
-message ItemCategoriesResponse {
+enum UnitMeasurement {
+  MILLILITER = 0;
+  LITER = 1;
+  KILOGRAM = 2;
+  GRAM = 3;
+  PACKAGE = 4;
+
+}
+
+message ItemCategoryType {
   string id = 1;
   string name = 2;
+  UnitMeasurement unit_measurement = 3;
+}
+
+message CreateItemCategoryRequest {
+  string name = 1;
+  UnitMeasurement unit_measurement = 2;
+}
+
+message UpdateItemCategoryRequest {
+  string id = 1;
+  string name = 2;
+  UnitMeasurement unit_measurement = 3;
 }
 
 service ItemCategoryService {
-  // Unary
-  rpc ListAllItemCategories(ItemCategoryListRequest) returns (stream ItemCategoriesResponse) {};
+  rpc ListAllItemCategories(ItemCategoryListRequest) returns (stream ItemCategoryType) {};
+  rpc CreateItemCategory(CreateItemCategoryRequest) returns (ItemCategoryType) {};
+  rpc UpdateItemCategory(UpdateItemCategoryRequest) returns (ItemCategoryType) {};
 }
