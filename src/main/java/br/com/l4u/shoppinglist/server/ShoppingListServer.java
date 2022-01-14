@@ -1,6 +1,6 @@
 package br.com.l4u.shoppinglist.server;
 
-import br.com.l4u.shoppinglist.server.impl.ShoppingListServerImpl;
+import br.com.l4u.shoppinglist.itemcategory.service.ShoppingListServerImpl;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
