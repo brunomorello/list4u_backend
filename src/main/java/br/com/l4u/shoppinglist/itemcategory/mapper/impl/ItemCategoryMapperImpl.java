@@ -35,7 +35,7 @@ public class ItemCategoryMapperImpl implements ItemCategoryMapper {
         return new ItemCategory(
                 null,
                 itemCategoryType.getName(),
-                itemCategoryType.getUnitMeasurement()
+                UnitMeasurement.valueOf(itemCategoryType.getUnitMeasurement().name())
         );
     }
 

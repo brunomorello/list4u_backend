@@ -1,5 +1,6 @@
 
-m https://github.com/github/gitignore/blob/master/Gradle.gitignore
+# https://github.com/github/gitignore/blob/master/Gradle.gitignore
+.gradle/7.1/
 .gradle/
 /build/
 
