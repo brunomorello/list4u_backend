@@ -1,0 +1,37 @@
+syntax = "proto3";
+package item;
+import "itemcategory/itemcategory.proto";
+
+option java_package = "br.com.l4u.item";
+option java_multiple_files = true;
+
+message ItemRequest {
+  string name = 1;
+  itemcategory.ItemCategoryType category = 2;
+  double quantity = 3;
+}
+
+message ItemSearchByIdRequest {
+  string id = 1;
+}
+
+message ItemsSearchByNameLikeRequest {
+  string name = 1;
+}
+
+message ItemsSearchByCategoryRequest {
+  itemcategory.ItemCategoryType category = 1;
+}
+
+message ItemType {
+  string id = 1;
+  string name = 2;
+  itemcategory.ItemCategoryType category = 3;
+}
+
+service ItemService {
+  rpc Create(ItemRequest) returns (ItemType);
+  rpc SearchById(ItemSearchByIdRequest) returns (ItemType);
+  rpc SearchByNameLike(ItemsSearchByNameLikeRequest) returns (stream ItemType);
+  rpc SearchByCategory(ItemsSearchByNameLikeRequest) returns (stream ItemType);
+}

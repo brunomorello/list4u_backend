@@ -1,0 +1,91 @@
+syntax = "proto3";
+package shoppinglist;
+import "item/item.proto";
+import "user/user.proto";
+
+option java_package = "br.com.l4u.shoppinglist";
+option java_multiple_files = true;
+
+message CreateShoppingListRequest {
+  string name = 1;
+  user.UserType created_by = 2;
+  Basket basket = 3;
+  repeated user.UserType shared_with = 4;
+}
+
+message AddItemRequest {
+  string shoppinglist_id = 1;
+  Item item = 2;
+}
+
+message EmptyBasketRequest {
+  string shoppinglist_id = 1;
+}
+
+message EmptyBasketResponse {}
+
+message AddUserRequest {
+  string shoppinglist_id = 1;
+  user.UserType user = 2;
+}
+
+message DuplicateShoppingListRequest {
+  string shoppinglist_id = 1;
+}
+
+message GetShoppingListByIdRequest {
+  string id = 1;
+}
+
+message UpdateShoppingListRequest {
+  string id = 1;
+  string name = 2;
+}
+
+message DeleteShoppingListRequest {
+  string shoppinglist_id = 1;
+}
+
+message DeleteShoppingListResponse {}
+
+message GetShoppingListByNameLikeRequest {
+  string name = 1;
+}
+
+message GetAllShoppingListByUserRequest {
+  user.UserType user = 1;
+}
+
+message GetShoppingListsResponse {
+  repeated ShoppingListType lists = 1;
+}
+
+message ShoppingListType {
+  string id = 1;
+  string name = 2;
+  user.UserType created_by = 3;
+  Basket basket = 4;
+  repeated user.UserType shared_with = 5;
+}
+
+message Basket {
+  repeated Item items = 1;
+}
+
+message Item {
+  item.ItemType item = 1;
+  double quantity = 2;
+}
+
+service ShoppingListService {
+  rpc CreateShoppingList(CreateShoppingListRequest) returns (ShoppingListType) {}
+  rpc UpdateShoppingList(UpdateShoppingListRequest) returns (ShoppingListType) {}
+  rpc DeleteShoppingList(DeleteShoppingListRequest) returns (DeleteShoppingListResponse) {}
+  rpc AddItemToBasket(AddItemRequest) returns (ShoppingListType) {}
+  rpc EmptyBasket(EmptyBasketRequest) returns (EmptyBasketResponse) {}
+  rpc AddUserToList(AddUserRequest) returns (ShoppingListType) {}
+  rpc GetShoppingListById(GetShoppingListByIdRequest) returns (ShoppingListType) {}
+  rpc GetShoppingListByNameLike(GetShoppingListByNameLikeRequest) returns (GetShoppingListsResponse) {}
+  rpc GetAllShoppingListByUser(GetAllShoppingListByUserRequest) returns (GetShoppingListsResponse) {}
+  rpc DuplicateShoppingList(DuplicateShoppingListRequest) returns (ShoppingListType) {}
+}
