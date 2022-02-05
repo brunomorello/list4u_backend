@@ -78,8 +78,7 @@ public class ItemRepositoryImpl implements ItemRepository {
     }
 
     @Override
-    public Item delete(String id) {
-        return null;
+    public void delete(String id) {
     }
 
     @Override
