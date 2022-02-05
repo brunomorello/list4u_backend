@@ -8,7 +8,7 @@ import java.util.List;
 public interface ItemRepository {
     public Item save(Item item) throws IllegalArgumentException;
     public Item searchById(String id);
-    public Item delete(String id);
+    public void delete(String id);
     public List<Item> listAll();
     public List<Item> searchByCategory(ItemCategory category);
     public List<Item> searchByNameLike(String name);
