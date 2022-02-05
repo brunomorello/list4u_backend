@@ -1,7 +1,7 @@
 package br.com.l4u.shoppinglist.api.item.service;
 
 import br.com.l4u.item.*;
-import br.com.l4u.shoppinglist.config.DatabaseConfig;
+import br.com.l4u.shoppinglist.infra.config.db.DatabaseConfig;
 import br.com.l4u.shoppinglist.api.item.mapper.ItemMapper;
 import br.com.l4u.shoppinglist.api.item.mapper.impl.ItemMapperImpl;
 import br.com.l4u.shoppinglist.api.item.model.Item;

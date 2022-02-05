@@ -1,4 +1,4 @@
-package br.com.l4u.shoppinglist.config;
+package br.com.l4u.shoppinglist.infra.config.db;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
