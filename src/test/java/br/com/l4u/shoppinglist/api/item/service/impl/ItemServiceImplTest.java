@@ -36,10 +36,21 @@ class ItemServiceImplTest {
 
     @Test
     void update() {
+        Item bread = service.update(new Item(
+                "1",
+                "Bread",
+                itemCategory
+        ));
+
+        assertEquals("1", bread.getId(), "ID must be equals");
+        assertEquals("Bread", bread.getName(), "Name must be equals");
+        assertEquals(itemCategory, bread.getCategory(), "Category must be equals");
     }
 
     @Test
     void delete() {
+        service.delete(new Item("1", "Bread", itemCategory));
+        assertThrows(ResourceNotFoundException.class, () -> service.searchById("1"));
     }
 
     @Test
@@ -53,7 +64,7 @@ class ItemServiceImplTest {
 
     @Test
     void searchByIdNotFound() {
-        assertThrows(ResourceNotFoundException.class, () -> service.searchById("0"));
+        assertThrows(ResourceNotFoundException.class, () -> service.searchById("-10"));
     }
 
     @Test
