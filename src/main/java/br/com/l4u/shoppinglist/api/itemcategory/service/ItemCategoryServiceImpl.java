@@ -1,16 +1,16 @@
-package br.com.l4u.shoppinglist.itemcategory.service;
+package br.com.l4u.shoppinglist.api.itemcategory.service;
 
 import br.com.l4u.itemcategory.*;
 import br.com.l4u.shoppinglist.config.DatabaseConfig;
-import br.com.l4u.shoppinglist.itemcategory.mapper.ItemCategoryMapper;
-import br.com.l4u.shoppinglist.itemcategory.mapper.impl.ItemCategoryMapperImpl;
-import br.com.l4u.shoppinglist.itemcategory.model.ItemCategory;
-import br.com.l4u.shoppinglist.itemcategory.repository.ItemCategoryRepository;
-import br.com.l4u.shoppinglist.itemcategory.repository.impl.ItemCategoryRepositoryImpl;
+import br.com.l4u.shoppinglist.api.itemcategory.mapper.ItemCategoryMapper;
+import br.com.l4u.shoppinglist.api.itemcategory.mapper.impl.ItemCategoryMapperImpl;
+import br.com.l4u.shoppinglist.api.itemcategory.model.ItemCategory;
+import br.com.l4u.shoppinglist.api.itemcategory.repository.ItemCategoryRepository;
+import br.com.l4u.shoppinglist.api.itemcategory.repository.impl.ItemCategoryRepositoryImpl;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
-public class ShoppingListServerImpl extends ItemCategoryServiceGrpc.ItemCategoryServiceImplBase {
+public class ItemCategoryServiceImpl extends ItemCategoryServiceGrpc.ItemCategoryServiceImplBase {
 
     ItemCategoryMapper mapper = new ItemCategoryMapperImpl();
     ItemCategoryRepository repository = new ItemCategoryRepositoryImpl(new DatabaseConfig());

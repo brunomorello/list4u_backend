@@ -1,7 +1,6 @@
-package br.com.l4u.shoppinglist.itemcategory.repository;
+package br.com.l4u.shoppinglist.api.itemcategory.repository;
 
-import br.com.l4u.itemcategory.ItemCategoryType;
-import br.com.l4u.shoppinglist.itemcategory.model.ItemCategory;
+import br.com.l4u.shoppinglist.api.itemcategory.model.ItemCategory;
 
 import java.util.List;
 

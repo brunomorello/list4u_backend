@@ -1,15 +1,20 @@
 package br.com.l4u.shoppinglist.server;
 
-import br.com.l4u.shoppinglist.itemcategory.service.ShoppingListServerImpl;
+import br.com.l4u.shoppinglist.api.item.service.ItemService;
+import io.grpc.BindableService;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShoppingListServer {
     public static void main(String[] args) throws IOException, InterruptedException {
+        List<BindableService> services = new ArrayList<>();
+
         Server server = ServerBuilder.forPort(50051)
-                .addService(new ShoppingListServerImpl())
+                .addService(new ItemService())
                 .build();
         server.start();
 

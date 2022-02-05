@@ -1,14 +1,12 @@
-package br.com.l4u.shoppinglist.itemcategory.mapper.impl;
+package br.com.l4u.shoppinglist.api.itemcategory.mapper.impl;
 
 import br.com.l4u.itemcategory.CreateItemCategoryRequest;
 import br.com.l4u.itemcategory.ItemCategoryType;
 import br.com.l4u.itemcategory.UnitMeasurement;
 import br.com.l4u.itemcategory.UpdateItemCategoryRequest;
-import br.com.l4u.shoppinglist.itemcategory.mapper.ItemCategoryMapper;
-import br.com.l4u.shoppinglist.itemcategory.model.ItemCategory;
+import br.com.l4u.shoppinglist.api.itemcategory.mapper.ItemCategoryMapper;
+import br.com.l4u.shoppinglist.api.itemcategory.model.ItemCategory;
 import org.bson.Document;
-
-import java.util.UUID;
 
 public class ItemCategoryMapperImpl implements ItemCategoryMapper {
 
@@ -36,6 +34,15 @@ public class ItemCategoryMapperImpl implements ItemCategoryMapper {
                 null,
                 itemCategoryType.getName(),
                 UnitMeasurement.valueOf(itemCategoryType.getUnitMeasurement().name())
+        );
+    }
+
+    @Override
+    public ItemCategory toModel(ItemCategoryType itemCategoryType) {
+        return new ItemCategory(
+                itemCategoryType.getId(),
+                itemCategoryType.getName(),
+                itemCategoryType.getUnitMeasurement()
         );
     }
 
