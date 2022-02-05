@@ -8,7 +8,16 @@ option java_multiple_files = true;
 message ItemRequest {
   string name = 1;
   itemcategory.ItemCategoryType category = 2;
-  double quantity = 3;
+}
+
+message ItemUpdateRequest {
+  string id = 1;
+  string name = 2;
+  itemcategory.ItemCategoryType category = 3;
+}
+
+message ItemDeleteRequest {
+  string id = 1;
 }
 
 message ItemSearchByIdRequest {
@@ -31,6 +40,8 @@ message ItemType {
 
 service ItemService {
   rpc Create(ItemRequest) returns (ItemType);
+  rpc Update(ItemUpdateRequest) returns (ItemType);
+  rpc Delete(ItemDeleteRequest) returns (ItemType);
   rpc SearchById(ItemSearchByIdRequest) returns (ItemType);
   rpc SearchByNameLike(ItemsSearchByNameLikeRequest) returns (stream ItemType);
   rpc SearchByCategory(ItemsSearchByNameLikeRequest) returns (stream ItemType);

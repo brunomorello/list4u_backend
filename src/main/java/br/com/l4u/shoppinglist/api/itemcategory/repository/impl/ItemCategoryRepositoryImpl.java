@@ -1,10 +1,10 @@
-package br.com.l4u.shoppinglist.itemcategory.repository.impl;
+package br.com.l4u.shoppinglist.api.itemcategory.repository.impl;
 
-import br.com.l4u.shoppinglist.config.DatabaseConfig;
-import br.com.l4u.shoppinglist.itemcategory.mapper.ItemCategoryMapper;
-import br.com.l4u.shoppinglist.itemcategory.mapper.impl.ItemCategoryMapperImpl;
-import br.com.l4u.shoppinglist.itemcategory.model.ItemCategory;
-import br.com.l4u.shoppinglist.itemcategory.repository.ItemCategoryRepository;
+import br.com.l4u.shoppinglist.infra.config.db.DatabaseConfig;
+import br.com.l4u.shoppinglist.api.itemcategory.mapper.ItemCategoryMapper;
+import br.com.l4u.shoppinglist.api.itemcategory.mapper.impl.ItemCategoryMapperImpl;
+import br.com.l4u.shoppinglist.api.itemcategory.model.ItemCategory;
+import br.com.l4u.shoppinglist.api.itemcategory.repository.ItemCategoryRepository;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
