@@ -22,7 +22,6 @@ public class ItemCategoryGrpcServiceImpl extends ItemCategoryServiceGrpc.ItemCat
                     ItemCategoryType.newBuilder()
                             .setId(item.getId())
                             .setName(item.getName())
-                            .setUnitMeasurement(item.getUnitMeasurement())
                             .build()
             );
         });

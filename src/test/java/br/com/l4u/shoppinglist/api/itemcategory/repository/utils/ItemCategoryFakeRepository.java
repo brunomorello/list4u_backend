@@ -18,7 +18,7 @@ public class ItemCategoryFakeRepository implements ItemCategoryRepository {
         itemCategories.add(
             new ItemCategory(
                 String.valueOf(faker.number().randomDigit()),
-                faker.food().ingredient(), UnitMeasurement.LITER));
+                faker.food().ingredient()));
     }
 
     @Override

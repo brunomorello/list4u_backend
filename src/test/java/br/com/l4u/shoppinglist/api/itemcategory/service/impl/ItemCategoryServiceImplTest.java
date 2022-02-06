@@ -29,24 +29,20 @@ class ItemCategoryServiceImplTest {
 
     @Test
     void createItemCategory() {
-        ItemCategory itemCategory = service.createItemCategory(new ItemCategory(null, "Drinks", UnitMeasurement.MILLILITER));
+        ItemCategory itemCategory = service.createItemCategory(new ItemCategory(null, "Drinks"));
 
         assertNotNull(itemCategory.getId(), "ID must not be null");
         assertEquals("Drinks", itemCategory.getName(), "Names must be equals");
-        assertEquals(UnitMeasurement.MILLILITER, itemCategory.getUnitMeasurement(), "Item Category Unit of Measurement must be equals");
     }
 
     @Test
     void updateItemCategory() {
         ItemCategory itemCategory = service.listAllItemCategories().get(0);
-
         itemCategory.setName("Test");
-        itemCategory.setUnitMeasurement(UnitMeasurement.GRAM);
 
         ItemCategory itemCategoryUpdated = service.updateItemCategory(itemCategory);
 
         assertNotNull(itemCategoryUpdated.getId(), "ID must not be null");
         assertEquals("Test", itemCategoryUpdated.getName(), "Item Category Name must be equals");
-        assertEquals(UnitMeasurement.GRAM, itemCategoryUpdated.getUnitMeasurement(), "Item Category Unit of Measurement must be equals");
     }
 }

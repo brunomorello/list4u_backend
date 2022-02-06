@@ -20,7 +20,7 @@ public class ItemFakeRepository implements ItemRepository {
     private Faker faker = new Faker();
 
     public ItemFakeRepository() {
-        ItemCategory itemCategory = new ItemCategory("3", "Test", UnitMeasurement.KILOGRAM);
+        ItemCategory itemCategory = new ItemCategory("3", "Test");
 
         items.add(
             new Item(

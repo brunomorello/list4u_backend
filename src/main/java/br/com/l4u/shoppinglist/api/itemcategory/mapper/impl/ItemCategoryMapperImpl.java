@@ -15,7 +15,6 @@ public class ItemCategoryMapperImpl implements ItemCategoryMapper {
         return ItemCategoryType.newBuilder()
                 .setId(itemCategory.getId().toString())
                 .setName(itemCategory.getName())
-                .setUnitMeasurement(itemCategory.getUnitMeasurement())
                 .build();
     }
 
@@ -23,8 +22,7 @@ public class ItemCategoryMapperImpl implements ItemCategoryMapper {
     public ItemCategory toModel(UpdateItemCategoryRequest itemCategoryType) {
         return new ItemCategory(
                 itemCategoryType.getId(),
-                itemCategoryType.getName(),
-                itemCategoryType.getUnitMeasurement()
+                itemCategoryType.getName()
         );
     }
 
@@ -32,8 +30,7 @@ public class ItemCategoryMapperImpl implements ItemCategoryMapper {
     public ItemCategory toModel(CreateItemCategoryRequest itemCategoryType) {
         return new ItemCategory(
                 null,
-                itemCategoryType.getName(),
-                UnitMeasurement.valueOf(itemCategoryType.getUnitMeasurement().name())
+                itemCategoryType.getName()
         );
     }
 
@@ -41,8 +38,7 @@ public class ItemCategoryMapperImpl implements ItemCategoryMapper {
     public ItemCategory toModel(ItemCategoryType itemCategoryType) {
         return new ItemCategory(
                 itemCategoryType.getId(),
-                itemCategoryType.getName(),
-                itemCategoryType.getUnitMeasurement()
+                itemCategoryType.getName()
         );
     }
 
@@ -50,8 +46,7 @@ public class ItemCategoryMapperImpl implements ItemCategoryMapper {
     public ItemCategory documentToModel(Document document) {
         return new ItemCategory(
                 document.getObjectId("_id").toString(),
-                document.getString("name"),
-                UnitMeasurement.valueOf(document.getString("unitMeasurement"))
+                document.getString("name")
         );
     }
 }

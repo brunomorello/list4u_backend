@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ItemServiceImplTest {
 
     private static ItemServiceImpl service;
-    private ItemCategory itemCategory = new ItemCategory("3", "Test", UnitMeasurement.KILOGRAM);
+    private ItemCategory itemCategory = new ItemCategory("3", "Test");
 
     @BeforeAll
     static void setup() {
@@ -24,7 +24,7 @@ class ItemServiceImplTest {
 
     @Test
     void create() {
-        ItemCategory drinksCategory = new ItemCategory("33", "Drinks", UnitMeasurement.MILLILITER);
+        ItemCategory drinksCategory = new ItemCategory("33", "Drinks");
         Item item = new Item(null, "Heineken", drinksCategory);
 
         Item itemCreated = service.create(item);
@@ -88,7 +88,7 @@ class ItemServiceImplTest {
 
     @Test
     void searchByCategoryNotFound() {
-        List<Item> itemList = service.searchByCategory(new ItemCategory("1", "blabla", UnitMeasurement.KILOGRAM));
+        List<Item> itemList = service.searchByCategory(new ItemCategory("1", "blabla"));
         assertEquals(0, itemList.size(), "List must be empty");
     }
 

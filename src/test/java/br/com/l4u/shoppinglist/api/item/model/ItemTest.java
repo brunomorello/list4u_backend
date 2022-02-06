@@ -12,7 +12,7 @@ class ItemTest {
 
     @Test
     void test_item_constructor_with_valid_values() {
-        ItemCategory pastaCategory = new ItemCategory("123", "Pasta", UnitMeasurement.KILOGRAM);
+        ItemCategory pastaCategory = new ItemCategory("123", "Pasta");
         item = new Item("123", "Spaghetti", pastaCategory);
 
         assertEquals("123", item.getId(), "ID must be Equals - value ex: 123");
@@ -31,7 +31,7 @@ class ItemTest {
         item.setId("333");
         item.setName("Heineken");
 
-        ItemCategory beer = new ItemCategory("444", "Beer", UnitMeasurement.LITER);
+        ItemCategory beer = new ItemCategory("444", "Beer");
         item.setCategory(beer);
 
         assertEquals("333", item.getId(), "ID must be 333");
