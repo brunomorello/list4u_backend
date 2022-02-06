@@ -42,8 +42,7 @@ public class ItemCategoryRepositoryImpl implements ItemCategoryRepository {
 
     private ItemCategory create(ItemCategory itemCategory) {
         Document doc = new Document()
-                .append("name", itemCategory.getName())
-                .append("unitMeasurement", itemCategory.getUnitMeasurement().toString());
+                .append("name", itemCategory.getName());
 
         System.out.println("Inserting new ItemCategory...");
 
@@ -63,8 +62,7 @@ public class ItemCategoryRepositoryImpl implements ItemCategoryRepository {
 
         Document updatedDoc = new Document()
                 .append("_id", new ObjectId(itemCategory.getId()))
-                .append("name", itemCategory.getName())
-                .append("unitMeasurement", itemCategory.getUnitMeasurement().toString());
+                .append("name", itemCategory.getName());
 
         System.out.println("Updating ItemCategory with id " + itemCategory.getId() + "...");
 

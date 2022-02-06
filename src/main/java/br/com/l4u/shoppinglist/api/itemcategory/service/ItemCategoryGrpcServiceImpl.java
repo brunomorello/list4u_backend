@@ -10,7 +10,7 @@ import br.com.l4u.shoppinglist.api.itemcategory.repository.impl.ItemCategoryRepo
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
-public class ItemCategoryServiceImpl extends ItemCategoryServiceGrpc.ItemCategoryServiceImplBase {
+public class ItemCategoryGrpcServiceImpl extends ItemCategoryServiceGrpc.ItemCategoryServiceImplBase {
 
     ItemCategoryMapper mapper = new ItemCategoryMapperImpl();
     ItemCategoryRepository repository = new ItemCategoryRepositoryImpl(new DatabaseConfig());
@@ -22,7 +22,6 @@ public class ItemCategoryServiceImpl extends ItemCategoryServiceGrpc.ItemCategor
                     ItemCategoryType.newBuilder()
                             .setId(item.getId())
                             .setName(item.getName())
-                            .setUnitMeasurement(item.getUnitMeasurement())
                             .build()
             );
         });

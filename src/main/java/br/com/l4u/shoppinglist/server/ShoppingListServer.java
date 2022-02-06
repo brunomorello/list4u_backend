@@ -1,6 +1,6 @@
 package br.com.l4u.shoppinglist.server;
 
-import br.com.l4u.shoppinglist.api.item.service.ItemService;
+import br.com.l4u.shoppinglist.api.item.service.ItemGrpcServiceImpl;
 import io.grpc.BindableService;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -14,7 +14,7 @@ public class ShoppingListServer {
         List<BindableService> services = new ArrayList<>();
 
         Server server = ServerBuilder.forPort(50051)
-                .addService(new ItemService())
+                .addService(new ItemGrpcServiceImpl())
                 .build();
         server.start();
 

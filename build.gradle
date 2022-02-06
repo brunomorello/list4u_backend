@@ -42,6 +42,16 @@ dependencies {
     // mongodb
     implementation 'org.mongodb:mongodb-driver-sync:4.2.3'
 
+    // java-faker
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+
+    // mockito
+    implementation 'org.mockito:mockito-core:4.3.1'
+
+    // cucumber
+    testImplementation 'io.cucumber:cucumber-java8:7.0.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.0.0'
+
     testCompileOnly 'org.projectlombok:lombok:1.18.22'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 

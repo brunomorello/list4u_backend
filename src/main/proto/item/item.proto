@@ -20,6 +20,8 @@ message ItemDeleteRequest {
   string id = 1;
 }
 
+message ListAllItemsRequest {}
+
 message ItemSearchByIdRequest {
   string id = 1;
 }
@@ -42,6 +44,7 @@ service ItemService {
   rpc Create(ItemRequest) returns (ItemType);
   rpc Update(ItemUpdateRequest) returns (ItemType);
   rpc Delete(ItemDeleteRequest) returns (ItemType);
+  rpc ListAllItems(ListAllItemsRequest) returns (stream ItemType);
   rpc SearchById(ItemSearchByIdRequest) returns (ItemType);
   rpc SearchByNameLike(ItemsSearchByNameLikeRequest) returns (stream ItemType);
   rpc SearchByCategory(ItemsSearchByNameLikeRequest) returns (stream ItemType);
