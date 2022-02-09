@@ -1,22 +1,53 @@
 package br.com.l4u.shoppinglist.api.shoppinglist.model;
 
-import br.com.l4u.shoppinglist.api.item.model.Item;
 import br.com.l4u.shoppinglist.api.user.model.User;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @ToString
 @EqualsAndHashCode
-@NoArgsConstructor
 public class ShoppingList {
     private String id;
     private String name;
     private User createdBy;
-    private List<User> sharedUsers;
+    private Set<User> sharedUsers;
     private Basket basket;
+
+    public ShoppingList(User createdBy) {
+        this.sharedUsers = new HashSet<>();
+        this.basket = new Basket();
+        this.createdBy = createdBy;
+    }
+
+    public void addUser(User user) {
+        this.sharedUsers.add(user);
+    }
+
+    public void removeUser(User user) {
+        this.sharedUsers.remove(user);
+    }
+
+    public void addBasketItem(BasketItem basketItem) {
+        this.basket.add(basketItem);
+    }
+
+    public void removeBasketItem(BasketItem basketItem) {
+        this.basket.remove(basketItem);
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+// TODO - REWRITE LAST COMMIT THAT CONTAINS WIP
 }
