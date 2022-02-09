@@ -1,10 +1,8 @@
 package br.com.l4u.shoppinglist.api.itemcategory.service.impl;
 
-import br.com.l4u.itemcategory.UnitMeasurement;
 import br.com.l4u.shoppinglist.api.itemcategory.model.ItemCategory;
 import br.com.l4u.shoppinglist.api.itemcategory.repository.utils.ItemCategoryFakeRepository;
 import br.com.l4u.shoppinglist.api.itemcategory.service.ItemCategoryService;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

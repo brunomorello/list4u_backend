@@ -88,8 +88,8 @@ class ShoppingListTest {
     void removeBasketItem() {
     }
 
-    @Test
+//    @Test
     void getSharedUsers() {
-        assertNotEquals(0, );
+//        assertNotEquals(0, );
     }
 }
