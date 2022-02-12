@@ -41,6 +41,10 @@ public class ShoppingList {
         this.basket.remove(basketItem);
     }
 
+    public Basket getBasket() {
+        return this.basket;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
