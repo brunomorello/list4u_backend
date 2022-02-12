@@ -1,6 +1,5 @@
 package br.com.l4u.shoppinglist.api.itemcategory.model;
 
-import br.com.l4u.itemcategory.UnitMeasurement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

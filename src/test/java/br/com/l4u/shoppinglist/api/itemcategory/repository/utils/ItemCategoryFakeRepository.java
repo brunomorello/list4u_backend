@@ -1,6 +1,5 @@
 package br.com.l4u.shoppinglist.api.itemcategory.repository.utils;
 
-import br.com.l4u.itemcategory.UnitMeasurement;
 import br.com.l4u.shoppinglist.api.itemcategory.model.ItemCategory;
 import br.com.l4u.shoppinglist.api.itemcategory.repository.ItemCategoryRepository;
 import com.github.javafaker.Faker;
