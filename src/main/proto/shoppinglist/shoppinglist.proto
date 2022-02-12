@@ -77,6 +77,15 @@ message Item {
   double quantity = 2;
 }
 
+enum UnitMeasurement {
+  MILLILITER = 0;
+  LITER = 1;
+  KILOGRAM = 2;
+  GRAM = 3;
+  PACKAGE = 4;
+
+}
+
 service ShoppingListService {
   rpc CreateShoppingList(CreateShoppingListRequest) returns (ShoppingListType) {}
   rpc UpdateShoppingList(UpdateShoppingListRequest) returns (ShoppingListType) {}

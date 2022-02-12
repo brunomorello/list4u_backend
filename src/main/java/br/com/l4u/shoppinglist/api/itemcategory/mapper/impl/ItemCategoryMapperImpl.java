@@ -2,7 +2,6 @@ package br.com.l4u.shoppinglist.api.itemcategory.mapper.impl;
 
 import br.com.l4u.itemcategory.CreateItemCategoryRequest;
 import br.com.l4u.itemcategory.ItemCategoryType;
-import br.com.l4u.itemcategory.UnitMeasurement;
 import br.com.l4u.itemcategory.UpdateItemCategoryRequest;
 import br.com.l4u.shoppinglist.api.itemcategory.mapper.ItemCategoryMapper;
 import br.com.l4u.shoppinglist.api.itemcategory.model.ItemCategory;
